@@ -23,7 +23,7 @@ public class Main {
         goods.collectNamesAndPrices();
         float debtPerFriend = goods.priceSum / friendsNumber;
         String rubleForm = getWordForm((int)debtPerFriend);
-        String debtPhraseTemplate = "С каждого по %.2f %s";
+        String debtPhraseTemplate = "С каждого %.2f %s";
         System.out.print("Добавленные товары:\n" + goods.goodList);
         System.out.print(String.format(debtPhraseTemplate, debtPerFriend, rubleForm));
     }
