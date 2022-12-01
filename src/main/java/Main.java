@@ -19,9 +19,27 @@ public class Main {
                 System.out.println("Нужно ввести целое число больше 1. Попробуйте ещё раз:");
             }
         }
-        Goods goodsList = new Goods();
-        goodsList.collectNamesAndPrices();
+        Goods goods = new Goods();
+        goods.collectNamesAndPrices();
+        float debtPerFriend = goods.priceSum / friendsNumber;
+        String rubleForm = getWordForm((int)debtPerFriend);
+        String debtPhraseTemplate = "С каждого по %.2f %s";
+        System.out.print("Добавленные товары:\n" + goods.goodList);
+        System.out.print(String.format(debtPhraseTemplate, debtPerFriend, rubleForm));
     }
+    public static String getWordForm(int num){
+        int num100 = num % 100;
+        if (num100 <= 4 || num100 >= 21) {
+            int num10 = num100 % 10;
+            if (num10 == 1) {
+                return " рубль";
+            } else if (num10 > 1 && num10 < 5) {
+                return " рубля";
+            }
+        }
+        return " рублей";
+    }
+
 }
     
 
