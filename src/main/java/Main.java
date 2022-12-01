@@ -8,15 +8,19 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
             
         while (true){
-            friendsNumber = scanner.nextInt();
-            if (friendsNumber > 1) {
-                break;
+            try{
+                friendsNumber = Integer.parseInt(scanner.nextLine());
+                if (friendsNumber > 1) {
+                    break;
+                }
+                System.out.println("Упс! Для верного расчёта количество человек должно быть больше 1. Попробуйте ещё раз:");
             }
-            System.out.println("Упс! Для верного расчёта количество человек должно быть больше 1. Попробуйте ещё раз:");
+            catch (NumberFormatException exception) {
+                System.out.println("Нужно ввести целое число больше 1. Попробуйте ещё раз:");
+            }
         }
-        System.out.println("Введите название товара");
-        String name = scanner.nextLine();
-        System.out.println(name);
+        Goods goodsList = new Goods();
+        goodsList.collectNamesAndPrices();
     }
 }
     
